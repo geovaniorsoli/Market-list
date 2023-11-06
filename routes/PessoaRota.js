@@ -70,5 +70,22 @@ router.patch('/:id', async (req, res) => {
 });
 
 
+//delet
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id;
+    
+    try {
+        const deletedPerson = await Person.findOneAndDelete({ _id: id });
+        
+        if (!deletedPerson) {
+            return res.status(404).json({ error: 'Pessoa não encontrada.' });
+        }
+        
+        res.status(200).json({ message: 'Pessoa removida com sucesso.' });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 
 module.exports = router
