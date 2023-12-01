@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const cors = require('cors')
 const app = express();
 require('dotenv').config();
+
+app.use(cors())
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -34,3 +37,4 @@ mongoose
   .catch((err) => {
     console.error('Error BD', err);
   });
+
