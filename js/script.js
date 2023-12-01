@@ -8,14 +8,25 @@ function verProdutos() {
             products.forEach(product => {
                 const productItem = document.createElement('div')
                 productItem.innerHTML = `
-                    <p>${product.Nome}</p> 
-                    <p>Quantidade: ${product.Qnt}</p>
-                    <div class="dropdown">
+
+
+
+                <div id="item">  
+                
+                <div class="dropdown">
                         <button class="dropbtn">...</button>
                         <div class="dropdown-content">
                             <a href="#" onclick="editarProduto('${product._id}')">Editar</a>
                             <a href="#" onclick="deleteProduct('${product._id}')">Deletar</a>
                         </div>
+                    </div>
+
+                    <p class="subtitle">${product.Nome}</p> 
+                    <p class="subtitle">x${product.Qnt}</p>
+                
+                
+                   
+                    
                     </div>
                 `
                 productsList.appendChild(productItem)

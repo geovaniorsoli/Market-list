@@ -6,9 +6,11 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #ffffff;
+    color: #000000;
+    border: solid 1px #000000;
+    border-radius: 5px;
+    min-width: 110px;
     z-index: 1;
   }
   
@@ -17,9 +19,15 @@
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    border-radius: 5px;
+    transition: all .1s ease-in-out;
   }
   
-  .dropdown-content a:hover {background-color: #f1f1f1}
+  .dropdown-content a:hover {
+    background-color: #000000;
+    border-radius: 0;
+    color:#ffffff;
+}
   
   .dropdown:hover .dropdown-content {
     display: block;
@@ -37,3 +45,245 @@
     background-color: #3e8e41;
   }
   
+  @font-face {
+    font-family: 'medium';
+    src: url(../font/OverusedGrotesk-Medium.otf);
+}
+
+@font-face {
+    font-family: 'semi-bold';
+    src: url(../font/OverusedGrotesk-SemiBold.otf);
+}
+
+
+body{
+ font-family: 'semi-bold';
+ color: rgb(0, 0, 0);
+
+}   
+
+#container-form{
+    padding: 100px;
+    height: 800px;
+}
+.input{
+    max-width: 400px;
+    width: 50%;
+    height: auto;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    padding: 10px;
+    transition: all .2s ease-in-out;
+}
+
+    input:focus{
+    border: 1px solid #1f1f1f;
+}
+
+.title{
+    font-size: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: semi-bold;
+}
+
+.title2{
+    font-size: 70px;
+    font-family: semi-bold;
+   
+}
+.subtitle{
+    font-size: 60px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    font-family: 'medium';
+    margin-top: .5em;
+}
+
+
+#item{
+    color: #000000;
+    border: 1px solid black;
+    width: 30em;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 1em;
+    transition: all .1s ease-in-out;
+}
+
+.select{
+    max-width: 200px;
+    width: 50%;
+    border: 1px solid #484848;
+    border-radius: 3px;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+    font-family: 'semi-bold';
+}
+
+
+.select2{
+    max-width: 400px;
+    width: 50%;
+    border: 1px solid #484848;
+    border-radius: 3px;
+    padding: 10px;
+    font-family: 'semi-bold';
+    display: flex;
+    margin-top: -50px;
+}
+
+.button{
+    border-radius: 5px;
+    border: solid 1px #000000;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    font-size: 15px;
+    margin-top: .9em;
+    width: 100px;
+    transition: all .1s ease-in-out;
+    font-family: 'semi-bold';
+}
+
+.button:hover{
+    color: white;
+    background-color: black;
+    
+}
+
+#container-list{
+    padding: 100px;
+    height: 800px;
+    
+}
+
+.ticket{
+    color: #000000;
+    border: 1px solid black;
+    width: 30em;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 1em;
+    transition: all .1s ease-in-out;
+}
+
+.ticket:hover{
+    color: rgb(128, 128, 128);
+    border: 1px solid rgb(128, 128, 128);
+
+}
+
+.deletebutton{
+    border-radius: 5px;
+    border: solid 1px #000000;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    font-size: 15px;
+    margin-top: .9em;
+    width: 100px;
+    transition: all .1s ease-in-out;
+    font-family: 'semi-bold';
+}
+
+.deletebutton:hover{
+    color: white;
+    background-color: black;
+    
+}
+
+@media screen and (max-width: 812px){
+    
+#container-form{
+    padding: 10px;
+    height: 800px;
+}
+.input{
+    width: 95%;
+
+}
+
+
+.title{
+    font-size: 70px;
+}
+
+.title2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+   
+}
+.subtitle{
+    font-size: 30px;
+    margin-top: .5em;
+}
+
+
+.select{
+    width: 100%;
+}
+
+.select2{
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid #484848;
+    border-radius: 3px;
+    padding: 10px;
+    font-family: 'semi-bold';
+    display: flex;
+    margin-top: -17px;
+}
+
+.button{
+    border-radius: 5px;
+    border: solid 1px #000000;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    font-size: 15px;
+    margin-top: .9em;
+    width: 100px;
+    transition: all .1s ease-in-out;
+    font-family: 'semi-bold';
+}
+
+.button:hover{
+    color: white;
+    background-color: black;
+    
+}
+
+#container-list{
+    padding: 10px;
+    height: 800px;
+}
+
+.ticket{
+    width: 95%;
+}
+
+
+.deletebutton{
+    border-radius: 5px;
+    border: solid 1px #000000;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    font-size: 15px;
+    margin-top: .9em;
+    width: 100px;
+    transition: all .1s ease-in-out;
+    font-family: 'semi-bold';
+}
+
+.deletebutton:hover{
+    color: white;
+    background-color: black;
+    
+}
+}
