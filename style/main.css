@@ -285,6 +285,27 @@ body{
     
 }
 
+
+.fechar{
+    border-radius: 5px;
+    border: solid 1px #000000;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    font-size: 15px;
+    margin-top: .9em;
+    width: 100px;
+    transition: all .1s ease-in-out;
+    font-family: 'semi-bold';
+}
+
+.fechar:hover{
+    color: white;
+    background-color: black;
+    
+}
+
+
+
 #container-list{
     padding: 10px;
     height: 800px;

@@ -83,7 +83,8 @@ function EnviarEdicao() {
     const id = document.getElementById('editar-id').value
     const updatedProduct = {
         Nome: document.getElementById('editar-produto').value,
-        Qnt: document.getElementById('editar-quantidade').value
+        Qnt: document.getElementById('editar-quantidade').value,
+        Desc: document.getElementById('editar-descricao').value
     }
 
     fetch(`http://localhost:3000/Product/${id}`, {
