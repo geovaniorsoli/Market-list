@@ -1,6 +1,6 @@
 //visualizar produtos
 function verProdutos() {
-    fetch('http://localhost:3000/Product')
+    fetch('https://market-list.onrender.com/Product')
         .then(response => response.json())
         .then(products => {
             const productsList = document.getElementById('products-list')
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', verProdutos)
 
 //inserir produtos
 function adicionarProduto(productData) {
-    fetch('http://localhost:3000/Product', {
+    fetch('https://market-list.onrender.com/Product', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ document.getElementById('form-product').addEventListener('submit', (event) => {
 
 //editar product 
 function editarProduto(id) {
-    fetch(`http://localhost:3000/Product/${id}`)
+    fetch(`https://market-list.onrender.com/Product/${id}`)
         .then(response => response.json())
         .then(product => {
             document.getElementById('editar-produto').value = product.Nome
@@ -87,7 +87,7 @@ function EnviarEdicao() {
         Desc: document.getElementById('editar-descricao').value
     }
 
-    fetch(`http://localhost:3000/Product/${id}`, {
+    fetch(`https://market-list.onrender.com/Product/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ function EnviarEdicao() {
 
 //atualizar produto
 function AtualizarProduto(id, productData) {
-    fetch(`http://localhost:3000/Product/${id}`, {
+    fetch(`https://market-list.onrender.com/Product/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ function AtualizarProduto(id, productData) {
 //deletar produto
 
 function deleteProduct(id) {
-    fetch(`http://localhost:3000/Product/${id}`, {
+    fetch(`https://market-list.onrender.com/Product/${id}`, {
         method: 'DELETE'
     })
     .then(response => {
