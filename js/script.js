@@ -30,6 +30,57 @@ function verProdutos() {
 
 document.addEventListener('DOMContentLoaded', verProdutos)
 
+function alertTimeProduto() {
+    const alertproduto = document.getElementById('alertProduto')
+    alertproduto.style.display = 'block'
+    alertproduto.style.opacity = '1'
+
+    setTimeout(() => {
+        alertproduto.style.opacity = '0'
+    }, 2000)
+
+
+}
+
+function alertTimeQuantidade() {
+    const alertquantidade = document.getElementById('alertQuantidade')
+    alertquantidade.style.display = 'block'
+    alertquantidade.style.opacity = '1'
+
+    setTimeout(() => {
+        alertquantidade.style.opacity = '0'
+    }, 2000)
+}
+
+//validar produtos
+function validarproduto() {
+    const Produto = document.querySelector('#Produto').value
+    const Quantidade = document.querySelector('#Qnt').value
+    const Descricao = document.querySelector('#Desc').value
+
+    const alertproduto = document.getElementById('alertProduto')
+    const alertquantidade = document.getElementById('alertQuantidade')
+
+    let valido = true
+
+    if (Produto.trim().length == 0) {
+        return alertTimeProduto()
+        valido = false
+    } else {
+        alertproduto.style.display = "none"
+    }
+
+    if (Quantidade.trim().length == 0) {
+        alertTimeQuantidade()
+        valido = false
+    } else {
+        alertquantidade.style.display = "none"
+    }
+
+    return valido ? { Nome: Produto, Qnt: Quantidade, Desc: Descricao } : null;
+}
+
+
 //inserir produtos
 function adicionarProduto(productData) {
     fetch('https://market-list.onrender.com/Product', {
@@ -39,23 +90,22 @@ function adicionarProduto(productData) {
         },
         body: JSON.stringify(productData)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Produto adicionado:', data)
-        window.location.reload()
-    })
-    .catch(error => console.error('Erro ao adicionar produto:', error))
+        .then(response => response.json())
+        .then(data => {
+            console.log('Produto adicionado:', data)
+            window.location.reload()
+        })
+        .catch(error => console.error('Erro ao adicionar produto:', error))
 
 }
 
 document.getElementById('form-product').addEventListener('submit', (event) => {
-    event.preventDefault() 
+    event.preventDefault()
 
-    const Produto = document.querySelector('#Produto').value 
-    const Quantidade = document.querySelector('#Qnt').value 
-    const Descricao = document.querySelector('#Desc').value
-
-    adicionarProduto({ Nome: Produto, Qnt: Quantidade, Desc: Descricao})
+    const productData = validarproduto()
+    if (productData) {
+        adicionarProduto(productData)
+    }
 })
 
 //editar product 
@@ -68,7 +118,7 @@ function editarProduto(id) {
             document.getElementById('editar-descricao').value = product.Desc
             document.getElementById('editar-id').value = product._id
             var modalEdit = new bootstrap.Modal(document.getElementById('modalEdit'), {})
-        modalEdit.show()
+            modalEdit.show()
         })
         .catch(error => console.error('Erro ao buscar produto:', error))
 }
@@ -88,14 +138,14 @@ function EnviarEdicao() {
         },
         body: JSON.stringify(updatedProduct)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Produto atualizado:', data)
-        var modalEdit = new bootstrap.Modal(document.getElementById('modalEdit'), {})
-        modalEdit.show()
-        verProdutos() 
-    })
-    .catch(error => console.error('Erro ao atualizar produto:', error))
+        .then(response => response.json())
+        .then(data => {
+            console.log('Produto atualizado:', data)
+            var modalEdit = new bootstrap.Modal(document.getElementById('modalEdit'), {})
+            modalEdit.show()
+            verProdutos()
+        })
+        .catch(error => console.error('Erro ao atualizar produto:', error))
 }
 
 
@@ -108,11 +158,11 @@ function AtualizarProduto(id, productData) {
         },
         body: JSON.stringify(productData)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Produto atualizado:', data)
-    })
-    .catch(error => console.error('Erro ao atualizar produto:', error))
+        .then(response => response.json())
+        .then(data => {
+            console.log('Produto atualizado:', data)
+        })
+        .catch(error => console.error('Erro ao atualizar produto:', error))
 }
 
 //deletar produto
@@ -121,13 +171,13 @@ function deleteProduct(id) {
     fetch(`https://market-list.onrender.com/Product/${id}`, {
         method: 'DELETE'
     })
-    .then(response => {
-        if (response.ok) {
-            console.log('Produto deletado')
-            verProdutos() 
-        } else {
-            console.error('Erro ao deletar o produto')
-        }
-    })
-    .catch(error => console.error('Erro ao deletar produto:', error))
+        .then(response => {
+            if (response.ok) {
+                console.log('Produto deletado')
+                verProdutos()
+            } else {
+                console.error('Erro ao deletar o produto')
+            }
+        })
+        .catch(error => console.error('Erro ao deletar produto:', error))
 }

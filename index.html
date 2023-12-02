@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Market-list</title>
     <link rel="stylesheet" href="./style/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
@@ -21,82 +22,85 @@
         <h1 class="title2"> Lista de Produtos </h1>
         <div id="products-list">
 
-            
+
         </div>
     </div>
 
     <div class="container">
-    <div class="row">
-    <div id="container-form" style="display: none;">
-        <form id="form-product">
-            <label class="subtitle" for="NomeProduto">Produto </label>
-            <input class="input" type="text" placeholder="Nome do produto" name="NomeProduto" id="Produto" />
+        <div class="row">
+            <div id="container-form" style="display: none;">
+                <form id="form-product">
+                    <label class="subtitle" for="NomeProduto">Produto </label>
+                    <input class="input" type="text" placeholder="Nome do produto" name="NomeProduto" id="Produto" />
 
-            <label class="subtitle" for="Quantidade"> Quantidade </label>
-            <input class="input" type="text" name="Quantidade" id="Qnt" placeholder="Quantidade de produto"> <br>
+                    <label class="subtitle" for="Quantidade"> Quantidade </label>
+                    <input class="input" type="text" name="Quantidade" id="Qnt" placeholder="Quantidade de produto">
+                    <br>
 
-            <label class="subtitle" for="Quantidade"> Descrição </label>
-            <textarea class="input" type="text" name="Quantidade" id="Desc" placeholder="Descrição do produto"> </textarea> <br>
+                    <label class="subtitle" for="Quantidade"> Descrição </label>
+                    <textarea class="input" type="text" name="Quantidade" id="Desc"
+                        placeholder="Descrição do produto"> </textarea> <br>
 
-            <button class="button" type="submit">Pronto</button>
-        </form>
+                    <button class="button" type="submit">Pronto</button>
+                </form>
+            </div>
+
+
+
+        </div>
     </div>
-
-
-
-</div>
-</div>
-    <!-- form de editacao  -->
+    <!-- form de edicao  -->
 
     <!-- Modal para edição de produto -->
-    <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="ModalEditLabel" aria-hidden="true">
+    <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="ModalEditLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ModalEditLabel">Editar Produto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h5 class="title-modal" id="ModalEditLabel">Editar</h5>
                 </div>
                 <div class="modal-body">
                     <form id="edit-product-form">
                         <div class="form-group">
-                            <label for="editar-produto">Nome do Produto</label>
-                            <input type="text" class="form-control" id="editar-produto">
+                            <label class="subtitle-modal" for="editar-produto">Nome do Produto</label>
+                            <input type="text" class="input-modal" id="editar-produto">
                         </div>
-    
+
                         <div class="form-group">
-                            <label for="editar-quantidade">Quantidade</label>
-                            <input type="text" class="form-control" id="editar-quantidade">
+                            <label class="subtitle-modal" for="editar-quantidade">Quantidade</label>
+                            <input type="text" class="input-modal" id="editar-quantidade">
                         </div>
-    
+
                         <div class="form-group">
-                            <label for="editar-descricao">Descrição</label>
-                            <input type="text" class="form-control" id="editar-descricao">
+                            <label class="subtitle-modal" for="editar-descricao">Descrição</label>
+                            <input type="text" class="input-modal" id="editar-descricao">
                         </div>
                         <input type="hidden" id="editar-id">
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary" onclick="EnviarEdicao()">Salvar</button>
+                <div class="area-button-modal">
+                    <button type="button" class="button" onclick="EnviarEdicao()">Salvar</button>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- alert -->
-<div id="alertProduto" class="alert-produto" style="display: none;"> 
-    <h1> Campo produto não pode estar vazio</h1>
-</div>
-
-<div id="alertQuantidade" class="alert-quantidade" style="display: none;">
-    <h1> Campo Quantidade não pode estar vazio</h1>
-</div>
+    <div id="alertProduto" class="alert-produto" style="display: none;">
+        <p class="alert-text">Insira produto</p>
+    </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script></body>
-    <script src="./js/script.js"></script>
-    <script src="./js/event.js"> </script>
+    <div id="alertQuantidade" class="alert-quantidade" style="display: none;">
+        <p class="alert-text"> Insira quantidade </p>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+<script src="./js/script.js"></script>
+<script src="./js/event.js"> </script>
 
 </html>
