@@ -1,6 +1,9 @@
 /* Estilo do Dropdown */
 .dropdown {
     display: flex;
+    align-items: end;
+    justify-content: end;
+
   }
   
   .dropdown-content {
@@ -35,16 +38,13 @@
   
   .dropbtn {
     color: rgb(0, 0, 0);
-    padding: 16px;
-    font-size: 16px;
+    background: none;
+    font-size: 26px;
     border: none;
     cursor: pointer;
   }
   
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #3e8e41;
-  }
-  
+
   @font-face {
     font-family: 'medium';
     src: url(../font/OverusedGrotesk-Medium.otf);
@@ -86,6 +86,7 @@ body{
     align-items: center;
     justify-content: center;
     font-family: semi-bold;
+    padding: 50px;
 }
 
 .title2{
@@ -94,13 +95,36 @@ body{
    
 }
 .subtitle{
-    font-size: 60px;
+    font-size: 50px;
     color: rgb(0, 0, 0);
     display: flex;
     font-family: 'medium';
     margin-top: .5em;
 }
 
+.item-produto{
+    font-size: 60px;
+    margin-left: 20px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    font-family: 'medium';
+}
+
+.item-produto-quantidade{
+    font-size: 30px;
+    margin-left: 20px;
+    color: rgb(49, 49, 49);
+    display: flex;
+    font-family: 'medium';
+}
+
+.item-produto-descricao{
+    font-size: 15px;
+    margin-left: 20px;
+    color: rgb(73, 73, 73);
+    display: flex;
+    font-family: 'medium';
+}
 
 #item{
     color: #000000;
@@ -196,6 +220,8 @@ body{
     background-color: black;
     
 }
+
+
 
 @media screen and (max-width: 812px){
     

@@ -6,9 +6,13 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     Qnt: {
-        type: Number,
+        type: String,
         required: true,
         min: 0
+    },
+    Desc: {
+        type: String,
+        maxlength: 200
     }
 });
 

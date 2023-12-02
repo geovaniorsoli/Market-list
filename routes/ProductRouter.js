@@ -13,15 +13,15 @@ const validarProduct = (product) => {
 
 // Criação de produto
 router.post('/', async (req, res) => {
-    const { Nome, Qnt } = req.body
+    const { Nome, Qnt, Desc} = req.body
     
-    const erro = validarProduct({ Nome, Qnt })
+    const erro = validarProduct({ Nome, Qnt, Desc })
     if (erro) {
         return res.status(400).json({ error: erro })
     }
 
     try {
-        const newProduct = await Product.create({ Nome, Qnt })
+        const newProduct = await Product.create({ Nome, Qnt, Desc})
         res.status(201).json({ message: 'Produto inserido com sucesso 👌' })
     } catch (error) {
         res.status(500).json({ error: error.message })
@@ -57,9 +57,9 @@ router.get('/:id', async (req, res) => {
 // Atualizar um produto
 router.put('/:id', async (req, res) => {
     const id = req.params.id
-    const { Nome, Qnt } = req.body
+    const { Nome, Qnt, Desc} = req.body
 
-    const erro = validarProduct({ Nome, Qnt })
+    const erro = validarProduct({ Nome, Qnt, Desc})
     if (erro) {
         return res.status(400).json({ error: erro })
     }
@@ -67,7 +67,7 @@ router.put('/:id', async (req, res) => {
     try {
         const updatedProduct = await Product.findByIdAndUpdate(
             id,
-            { Nome, Qnt },
+            { Nome, Qnt, Desc},
             { new: true } 
         )
 

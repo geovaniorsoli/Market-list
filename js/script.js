@@ -9,8 +9,6 @@ function verProdutos() {
                 const productItem = document.createElement('div')
                 productItem.innerHTML = `
 
-
-
                 <div id="item">  
                 
                 <div class="dropdown">
@@ -21,8 +19,9 @@ function verProdutos() {
                         </div>
                     </div>
 
-                    <p class="subtitle">${product.Nome}</p> 
-                    <p class="subtitle">x${product.Qnt}</p>
+                    <p class="item-produto">${product.Nome}</p> 
+                    <p class="item-produto-quantidade">${product.Qnt}</p>
+                    <p class="item-produto-descricao">${product.Desc}</p>
                 
                 
                    
@@ -58,10 +57,11 @@ function adicionarProduto(productData) {
 document.getElementById('form-product').addEventListener('submit', (event) => {
     event.preventDefault() 
 
-    const Produto = document.querySelector('#productName').value 
+    const Produto = document.querySelector('#Produto').value 
     const Quantidade = document.querySelector('#Qnt').value 
+    const Descricao = document.querySelector('#Desc').value
 
-    adicionarProduto({ Nome: Produto, Qnt: Quantidade })
+    adicionarProduto({ Nome: Produto, Qnt: Quantidade, Desc: Descricao})
 })
 
 //editar product 
@@ -71,6 +71,7 @@ function editarProduto(id) {
         .then(product => {
             document.getElementById('editar-produto').value = product.Nome
             document.getElementById('editar-quantidade').value = product.Qnt
+            document.getElementById('editar-descricao').value = product.Desc
             document.getElementById('editar-id').value = product._id
             var modalEdit = new bootstrap.Modal(document.getElementById('modalEdit'), {})
         modalEdit.show()
