@@ -1,4 +1,3 @@
-/* Estilo do Dropdown */
 .dropdown {
     display: flex;
     align-items: end;
@@ -222,6 +221,24 @@ body{
     
 }
 
+.alert-produto {
+    background-color: #f44336; /* Cor de fundo vermelha para alerta */
+    color: white; /* Texto branco */
+    padding: 15px; /* Alguns espaços internos */
+    margin: 10px 0; /* Margem superior e inferior */
+    border-radius: 5px; /* Borda arredondada */
+}
+
+.alert-produto.success {
+    background-color: #4CAF50; /* Cor de fundo verde para sucesso */
+}
+
+.alert-produto.info {
+    background-color: #2196F3; /* Cor de fundo azul para informação */
+}
+
+/* Você pode adicionar mais estilos conforme necessário */
+
 
 
 @media screen and (max-width: 812px){
@@ -380,8 +397,6 @@ body{
         margin-top: 1em;
         margin-bottom: 10px;
      
-      
-    
     }
     
     
