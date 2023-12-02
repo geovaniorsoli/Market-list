@@ -226,24 +226,29 @@ body{
 @media screen and (max-width: 812px){
     
 #container-form{
-    padding: 10px;
+    padding: 25px;
     height: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .input{
-    width: 95%;
-
+    width: 100%;
 }
 
 
 .title{
-    font-size: 70px;
+    font-size: 60px;
 }
 
 .title2{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 40px;
    
 }
 .subtitle{
@@ -305,7 +310,6 @@ body{
 }
 
 
-
 #container-list{
     padding: 10px;
     height: 800px;
@@ -333,4 +337,37 @@ body{
     background-color: black;
     
 }
+
+
+.item-produto{
+    font-size: 50px;
+    margin-left: 20px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    font-family: 'medium';
+}
+
+.item-produto-quantidade{
+    font-size: 25px;
+    margin-left: 20px;
+    color: rgb(49, 49, 49);
+    display: flex;
+    font-family: 'medium';
+}
+
+.item-produto-descricao{
+    font-size: 20px;
+    margin-left: 20px;
+    display: flex;
+}
+
+#item{
+    width: 25em;
+    padding:5px;
+    margin-top: 1em;
+    margin: 0 auto;
+}
+
+
+
 }
