@@ -10,7 +10,6 @@ function verProdutos() {
                 productItem.innerHTML = `
 
                 <div id="item">  
-                
                 <div class="dropdown">
                         <button class="dropbtn">...</button>
                         <div class="dropdown-content">
@@ -18,14 +17,9 @@ function verProdutos() {
                             <a href="#" onclick="deleteProduct('${product._id}')">Deletar</a>
                         </div>
                     </div>
-
                     <p class="item-produto">${product.Nome}</p> 
                     <p class="item-produto-quantidade">${product.Qnt}</p>
                     <p class="item-produto-descricao">${product.Desc}</p>
-                
-                
-                   
-                    
                     </div>
                 `
                 productsList.appendChild(productItem)
