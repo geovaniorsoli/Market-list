@@ -40,16 +40,19 @@ body {
     display: block;
     border-radius: 5px;
     transition: all .1s ease-in-out;
+   
 }
 
 .dropdown-content a:hover {
     background-color: #000000;
     border-radius: 0;
     color: #ffffff;
+    
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
+
 }
 
 .dropbtn {
@@ -279,6 +282,12 @@ input:focus {
 /* responsividade celulares recentes */
 @media screen and (max-width: 812px) {
 
+    .dropdown:hover .dropdown-content {
+        display: block;
+        padding: 20px;
+    }
+
+    
     #container-form {
         padding: 25px;
         height: 800px;
@@ -294,7 +303,7 @@ input:focus {
 
 
     .title {
-        font-size: 60px;
+        font-size: 50px;
     }
 
     .title2 {
@@ -414,7 +423,7 @@ input:focus {
     }
 
     #item {
-        width: 25em;
+        width: 23em;
         padding: 5px;
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -460,5 +469,9 @@ input:focus {
 
     }
 
+    .dropdown:hover .dropdown-content {
+        display: block;
+        padding: 20px;
+    }
 
 }
