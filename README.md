@@ -1,11 +1,9 @@
-# API-Crud
- 
-Simples API de gestão de pessoas para projeto do 3º ano do curso técnico de 
-informática no Colégio Bento Quirino.
+# Market-list
+Uma projeto fullstack de lista de mercado para usar aqui em casa.
 
 ## Tecnologias
-
 * Node.js;
 * Express;
 * MongoDB;
 * Mongoose.
+  
