@@ -1,12 +1,12 @@
 /* fontes */
 @font-face {
     font-family: 'medium';
-    src: url(../font/OverusedGrotesk-Medium.otf);
+    src: url(../public/font/Geist-SemiBold.otf);
 }
 
 @font-face {
     font-family: 'semi-bold';
-    src: url(../font/OverusedGrotesk-SemiBold.otf);
+    src: url(../public/font/Geist-SemiBold.otf);
 }
 
 
@@ -76,6 +76,7 @@ body {
     border-radius: 3px;
     padding: 10px;
     transition: all .2s ease-in-out;
+    font-family: medium;
 }
 
 input:focus {
@@ -135,6 +136,7 @@ input:focus {
     justify-content: center;
     font-family: semi-bold;
     padding: 50px;
+    color: #000000;
 }
 
 .title2 {
@@ -182,8 +184,8 @@ input:focus {
     width: 30em;
     border-radius: 10px;
     padding: 10px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
     transition: all .1s ease-in-out;
 }
 
