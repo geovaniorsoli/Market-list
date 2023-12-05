@@ -304,6 +304,21 @@ input:focus {
     margin-right: auto;
 }
 
+.alert-delet{
+    border: 1px solid #626262;
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 18rem;
+    font-family: semi-bold;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transition: all .2s ease-in-out;     
+}
+
+
 
 /* modal form */
 .input-modal {
@@ -357,6 +372,14 @@ input:focus {
 .nav-title-mobile{
     display: none;
 }
+
+
+.alert-delet{
+    font-size: 30px;
+    margin: 0 auto;
+    
+}
+
 /* responsividade celulares recentes */
 @media screen and (max-width: 812px) {
 
@@ -524,6 +547,7 @@ input:focus {
 
     }
 
+
     .alert-existe {
         top: 20px;
         left: 50%;
@@ -533,6 +557,7 @@ input:focus {
         transition: all .2s ease-in-out;
         opacity: 0;
     }
+
 
     .nav-title{
         display: none;

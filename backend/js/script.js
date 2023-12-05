@@ -1,6 +1,6 @@
 //visualizar produtos
 function verProdutos() {
-    fetch('http://localhost:3000/Product')
+    fetch('http://localhost:3033/Product')
         .then(response => response.json())
         .then(products => {
             const productsList = document.getElementById('products-list')
@@ -103,7 +103,7 @@ function validarproduto(produtosExistentes) {
 //inserir produtos
 function adicionarProduto(productData) {
 
-    fetch('http://localhost:3000/Product', {
+    fetch('http://localhost:3033/Product', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ function adicionarProduto(productData) {
 document.getElementById('form-product').addEventListener('submit', (event) => {
     event.preventDefault()
 
-    fetch('http://localhost:3000/Product')
+    fetch('http://localhost:3033/Product')
         .then(response => response.json())
         .then(produtosExistentes => {
             const productData = validarproduto(produtosExistentes)
@@ -137,7 +137,7 @@ document.getElementById('form-product').addEventListener('submit', (event) => {
 
 //editar product 
 function editarProduto(id) {
-    fetch(`http://localhost:3000/Product/${id}`)
+    fetch(`http://localhost:3033/Product/${id}`)
         .then(response => response.json())
         .then(product => {
             document.getElementById('editar-produto').value = product.Nome
@@ -158,7 +158,7 @@ function EnviarEdicao() {
         Desc: document.getElementById('editar-descricao').value
     }
 
-    fetch(`http://localhost:3000/Product/${id}`, {
+    fetch(`http://localhost:3033/Product/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -178,7 +178,7 @@ function EnviarEdicao() {
 
 //atualizar produto
 function AtualizarProduto(id, productData) {
-    fetch(`http://localhost:3000/Product/${id}`, {
+    fetch(`http://localhost:3033/Product/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -195,7 +195,7 @@ function AtualizarProduto(id, productData) {
 //deletar produto
 
 function deleteProduct(id) {
-    fetch(`http://localhost:3000/Product/${id}`, {
+    fetch(`http://localhost:3033/Product/${id}`, {
         method: 'DELETE'
     })
         .then(response => {
@@ -209,9 +209,31 @@ function deleteProduct(id) {
         .catch(error => console.error('Erro ao deletar produto:', error))
 }
 
+function validarDelete(){
+    const alertDelete = document.getElementById('alert-delet')
+    const sim = document.getElementById('sim')
+    const nao = document.getElementById('nao')
+
+    alertDelete.style.display = 'block'
+
+    sim.addEventListener('click', () =>{
+        deleteGeral()
+        alertDelete.style.display = 'none'
+    })
+    
+    nao.addEventListener('click', () => {
+        alertDelete.style.display = 'none'
+    })
+    
+
+}
+
+document.getElementById('clear').addEventListener('click', validarDelete)
+
+
 async function deleteGeral() {
     try {
-        const response = await fetch('http://localhost:3000/Product', {
+        const response = await fetch('http://localhost:3033/Product', {
             method: 'DELETE'
         })
 
@@ -226,5 +248,4 @@ async function deleteGeral() {
     }
 }
 
-document.getElementById('clear').addEventListener('click', deleteGeral)
 
