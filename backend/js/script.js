@@ -1,6 +1,6 @@
 //visualizar produtos
 function verProdutos() {
-    fetch('https://market-list.onrender.com/Product')
+    fetch('http://localhost:3000/Product')
         .then(response => response.json())
         .then(products => {
             const productsList = document.getElementById('products-list')
@@ -42,6 +42,7 @@ function alertTimeProduto() {
 
 }
 
+
 function alertTimeQuantidade() {
     const alertquantidade = document.getElementById('alertQuantidade')
     alertquantidade.style.display = 'block'
@@ -52,8 +53,18 @@ function alertTimeQuantidade() {
     }, 2000)
 }
 
+function alertTimeExiste() {
+    const alertExiste = document.getElementById('alert-existe')
+    alertExiste.style.display = 'block'
+    alertExiste.style.opacity = '1'
+
+    setTimeout(() => {
+        alertExiste.style.opacity = '0'
+    }, 2000)
+}
+
 //validar produtos
-function validarproduto() {
+function validarproduto(produtosExistentes) {
     const Produto = document.querySelector('#Produto').value
     const Quantidade = document.querySelector('#Qnt').value
     const Descricao = document.querySelector('#Desc').value
@@ -61,11 +72,11 @@ function validarproduto() {
     const alertproduto = document.getElementById('alertProduto')
     const alertquantidade = document.getElementById('alertQuantidade')
 
+
     let valido = true
 
     if (Produto.trim().length == 0) {
         return alertTimeProduto()
-        valido = false
     } else {
         alertproduto.style.display = "none"
     }
@@ -77,21 +88,32 @@ function validarproduto() {
         alertquantidade.style.display = "none"
     }
 
-    return valido ? { Nome: Produto, Qnt: Quantidade, Desc: Descricao } : null;
+    const produtoExistente = produtosExistentes.find(produto => produto.Nome.toLowerCase() === Produto.toLowerCase())
+    if (produtoExistente) {
+        alertTimeExiste()
+        return null
+    }
+
+
+
+    return valido ? { Nome: Produto, Qnt: Quantidade, Desc: Descricao } : null
 }
 
 
 //inserir produtos
 function adicionarProduto(productData) {
-    fetch('https://market-list.onrender.com/Product', {
+
+    fetch('http://localhost:3000/Product', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(productData)
     })
+
         .then(response => response.json())
         .then(data => {
+
             console.log('Produto adicionado:', data)
             window.location.reload()
         })
@@ -102,15 +124,20 @@ function adicionarProduto(productData) {
 document.getElementById('form-product').addEventListener('submit', (event) => {
     event.preventDefault()
 
-    const productData = validarproduto()
-    if (productData) {
-        adicionarProduto(productData)
-    }
+    fetch('http://localhost:3000/Product')
+        .then(response => response.json())
+        .then(produtosExistentes => {
+            const productData = validarproduto(produtosExistentes)
+            if (productData) {
+                adicionarProduto(productData)
+            }
+        })
+        .catch(error => console.error('Erro ao buscar produtos:', error))
 })
 
 //editar product 
 function editarProduto(id) {
-    fetch(`https://market-list.onrender.com/Product/${id}`)
+    fetch(`http://localhost:3000/Product/${id}`)
         .then(response => response.json())
         .then(product => {
             document.getElementById('editar-produto').value = product.Nome
@@ -131,7 +158,7 @@ function EnviarEdicao() {
         Desc: document.getElementById('editar-descricao').value
     }
 
-    fetch(`https://market-list.onrender.com/Product/${id}`, {
+    fetch(`http://localhost:3000/Product/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -151,7 +178,7 @@ function EnviarEdicao() {
 
 //atualizar produto
 function AtualizarProduto(id, productData) {
-    fetch(`https://market-list.onrender.com/Product/${id}`, {
+    fetch(`http://localhost:3000/Product/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -168,7 +195,7 @@ function AtualizarProduto(id, productData) {
 //deletar produto
 
 function deleteProduct(id) {
-    fetch(`https://market-list.onrender.com/Product/${id}`, {
+    fetch(`http://localhost:3000/Product/${id}`, {
         method: 'DELETE'
     })
         .then(response => {
@@ -181,3 +208,23 @@ function deleteProduct(id) {
         })
         .catch(error => console.error('Erro ao deletar produto:', error))
 }
+
+async function deleteGeral() {
+    try {
+        const response = await fetch('http://localhost:3000/Product', {
+            method: 'DELETE'
+        })
+
+        if (response.ok) {
+            console.log('apagou tudo')
+            window.location.reload()
+        } else {
+            console.log('nao deu certo apagar tudo')
+        }
+    } catch (error) {
+        console.error('erro ao deletar os produtinhos', error)
+    }
+}
+
+document.getElementById('clear').addEventListener('click', deleteGeral)
+

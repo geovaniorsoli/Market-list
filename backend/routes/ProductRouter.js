@@ -97,4 +97,16 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
+
+//delet all
+router.delete('/', async (req, res) => {
+    try {
+        await Product.deleteMany({}); 
+
+        res.status(200).json({ message: 'Todos os produtos foram removidos com sucesso.' });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 module.exports = router

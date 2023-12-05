@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log('Servidor no ar 😎');
+  console.log('Servidor no ar 😎', `${process.env.PORT}`);
 });
 
 
