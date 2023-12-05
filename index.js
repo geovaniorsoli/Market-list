@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //rota
-const ProductRouter = require('./routes/ProductRouter.js');
+const ProductRouter = require('./backend/routes/ProductRouter.js');
 app.use('/Product', ProductRouter);
 
 app.get('/', (req, res) => {
