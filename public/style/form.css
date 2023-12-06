@@ -1,0 +1,61 @@
+/* fontes */
+@font-face {
+    font-family: 'medium';
+    src: url(../font/GeistMono-Regular.otf);
+}
+
+@font-face {
+    font-family: 'semi-bold';
+    src: url(../font/Geist-SemiBold.otf);
+}
+
+body{
+    font-family: medium;
+}
+
+#loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
+    margin: 16em auto;
+    width: 100%;
+    max-width: 350px;
+    border: 1px #000000 solid;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.input {
+    max-width: 330px;
+    width: 100%;
+    height: auto;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    padding: 10px;
+    transition: all .2s ease-in-out;
+    font-family: medium;
+    margin-bottom: 1rem;
+}
+
+input:focus {
+    border: 1px solid #1f1f1f;
+}
+
+
+.button {
+    border-radius: 5px;
+    border: solid 1px #000000;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    font-size: 15px;
+    margin-top: .9em;
+    width: 100px;
+    transition: all .1s ease-in-out;
+    font-family: 'semi-bold';
+}
+
+.button:hover {
+    color: white;
+    background-color: black;
+
+}

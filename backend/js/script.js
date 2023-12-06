@@ -121,7 +121,7 @@ function adicionarProduto(productData) {
 
 }
 
-document.getElementById('form-product').addEventListener('submit', (event) => {
+document.getElementById('loginForm').addEventListener('submit', (event) => {
     event.preventDefault()
 
     fetch('http://localhost:3033/Product')
@@ -250,34 +250,3 @@ async function deleteGeral() {
 
 
 //longin
-
-document.getElementById('login').addEventListener('submit', (e) => {
-    e.preventDefault()
-
-    const user = document.getElementById('User').value
-    const pass = document.getElementById('Password').value
-
-    fetch('http://localhost:3033/User',{
-        method: 'POST',
-        headers:{
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({user,pass})
-    })
-})
-.then(responde =>{
-    if(!responde.ok){
-        throw new Error('falha longuinho')
-
-    }
-    return responde.json()
-})
-
-.then(data =>{
-    alert('ai sim ')
-})
-
-.catch (error => {
-    console.error('erro no longin: ', error)
-    document.getElementById('LoginReturn').textContent = 'errrrrrooo'
-})

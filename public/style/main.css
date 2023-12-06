@@ -1,12 +1,12 @@
 /* fontes */
 @font-face {
     font-family: 'medium';
-    src: url(../public/font/Geist-SemiBold.otf);
+    src: url(../font/GeistMono-Regular.otf);
 }
 
 @font-face {
     font-family: 'semi-bold';
-    src: url(../public/font/Geist-SemiBold.otf);
+    src: url(../font/Geist-SemiBold.otf);
 }
 
 
