@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const Product = require('../models/Product.js')
 
+
 const validarProduct = (product) => {
     if (!product.Nome || !product.Qnt) {
         return "Nome e quantidade são obrigatórios"
@@ -13,15 +14,15 @@ const validarProduct = (product) => {
 
 // Criação de produto
 router.post('/', async (req, res) => {
-    const { Nome, Qnt, Desc} = req.body
-    
+    const { Nome, Qnt, Desc } = req.body
+
     const erro = validarProduct({ Nome, Qnt, Desc })
     if (erro) {
         return res.status(400).json({ error: erro })
     }
 
     try {
-        const newProduct = await Product.create({ Nome, Qnt, Desc})
+        const newProduct = await Product.create({ Nome, Qnt, Desc })
         res.status(201).json({ message: 'Produto inserido com sucesso 👌' })
     } catch (error) {
         res.status(500).json({ error: error.message })
@@ -30,7 +31,7 @@ router.post('/', async (req, res) => {
 
 // Listar todos os produtos
 router.get('/', async (req, res) => {
-    try { 
+    try {
         const products = await Product.find()
         res.status(200).json(products)
     }
@@ -42,8 +43,8 @@ router.get('/', async (req, res) => {
 // Obter um produto pelo ID
 router.get('/:id', async (req, res) => {
     const id = req.params.id
-    
-    try {    
+
+    try {
         const product = await Product.findById(id)
         if (!product) {
             return res.status(404).json({ error: 'Produto não encontrado.' })
@@ -57,9 +58,9 @@ router.get('/:id', async (req, res) => {
 // Atualizar um produto
 router.put('/:id', async (req, res) => {
     const id = req.params.id
-    const { Nome, Qnt, Desc} = req.body
+    const { Nome, Qnt, Desc } = req.body
 
-    const erro = validarProduct({ Nome, Qnt, Desc})
+    const erro = validarProduct({ Nome, Qnt, Desc })
     if (erro) {
         return res.status(400).json({ error: erro })
     }
@@ -67,8 +68,8 @@ router.put('/:id', async (req, res) => {
     try {
         const updatedProduct = await Product.findByIdAndUpdate(
             id,
-            { Nome, Qnt, Desc},
-            { new: true } 
+            { Nome, Qnt, Desc },
+            { new: true }
         )
 
         if (!updatedProduct) {
@@ -101,12 +102,15 @@ router.delete('/:id', async (req, res) => {
 //delet all
 router.delete('/', async (req, res) => {
     try {
-        await Product.deleteMany({}); 
+        await Product.deleteMany({});
 
         res.status(200).json({ message: 'Todos os produtos foram removidos com sucesso.' });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
+
+
+
 
 module.exports = router

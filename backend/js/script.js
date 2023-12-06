@@ -209,22 +209,22 @@ function deleteProduct(id) {
         .catch(error => console.error('Erro ao deletar produto:', error))
 }
 
-function validarDelete(){
+function validarDelete() {
     const alertDelete = document.getElementById('alert-delet')
     const sim = document.getElementById('sim')
     const nao = document.getElementById('nao')
 
     alertDelete.style.display = 'block'
 
-    sim.addEventListener('click', () =>{
+    sim.addEventListener('click', () => {
         deleteGeral()
         alertDelete.style.display = 'none'
     })
-    
+
     nao.addEventListener('click', () => {
         alertDelete.style.display = 'none'
     })
-    
+
 
 }
 
@@ -249,3 +249,35 @@ async function deleteGeral() {
 }
 
 
+//longin
+
+document.getElementById('login').addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    const user = document.getElementById('User').value
+    const pass = document.getElementById('Password').value
+
+    fetch('http://localhost:3033/User',{
+        method: 'POST',
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({user,pass})
+    })
+})
+.then(responde =>{
+    if(!responde.ok){
+        throw new Error('falha longuinho')
+
+    }
+    return responde.json()
+})
+
+.then(data =>{
+    alert('ai sim ')
+})
+
+.catch (error => {
+    console.error('erro no longin: ', error)
+    document.getElementById('LoginReturn').textContent = 'errrrrrooo'
+})
