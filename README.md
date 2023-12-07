@@ -1,6 +1,10 @@
 # Market-list
 Uma projeto fullstack de lista de mercado para usar aqui em casa.
 
+<p align="center">
+<img src="./public/img/exemplo.jpeg" />
+</p>
+
 ## Funções
 * Logar; 
 * Inserir Produto;
@@ -30,3 +34,6 @@ Uma projeto fullstack de lista de mercado para usar aqui em casa.
 
 ## Veja como é o projeto
 - [Youtube](https://youtu.be/vUsFvCC-cD8) 
+
+
+
