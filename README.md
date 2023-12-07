@@ -11,7 +11,7 @@ Uma projeto fullstack de lista de mercado para usar aqui em casa.
 * Ver Produto;
 * Editar Produto;
 * Apagar Produto;
-* Apagar todos os produtos da lista; 
+* Apagar todos os produtos da lista.
 
 ## Tecnologias
 * Node.js;
