@@ -59,3 +59,84 @@ input:focus {
     background-color: black;
 
 }
+
+@media screen and (max-width: 360px) {
+
+    #loginForm{
+        display: flex;
+        flex-direction: column;
+        justify-content: normal;
+        margin: 10em auto;
+        width: 100%;
+        max-width: 300px;
+        border: 1px #000000 solid;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .input {
+        max-width: 330px;
+        width: 95%;
+        height: auto;
+        border: 1px solid #000000;
+        border-radius: 3px;
+        padding: 10px;
+        transition: all .2s ease-in-out;
+        font-family: medium;
+        margin-bottom: 1rem;
+    }
+
+    .title{
+        margin: 2rem auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
+
+@media screen and (max-width: 812px) {
+
+    .title{
+        margin: 2rem auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+
+    #loginForm{
+        display: flex;
+        flex-direction: column;
+        justify-content: normal;
+        margin: 10em auto;
+        width: 100%;
+        max-width: 300px;
+        border: 1px #000000 solid;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .input {
+        max-width: 330px;
+        width: 95%;
+        height: auto;
+        border: 1px solid #000000;
+        border-radius: 3px;
+        padding: 10px;
+        transition: all .2s ease-in-out;
+        font-family: medium;
+        margin-bottom: 1rem;
+    }
+
+    .title{
+        margin: 2rem auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}

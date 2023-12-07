@@ -180,7 +180,7 @@ input:focus {
     font-size: 45px;
     color: rgb(0, 0, 0);
     display: flex;
-    font-family: 'medium';
+    font-family: 'semi-bold';
     margin: 0 auto;
     display: block;
 }
