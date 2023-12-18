@@ -1,6 +1,6 @@
 //visualizar produtos
 function verProdutos() {
-    fetch('http://localhost:3033/Product')
+    fetch('https://market-list.onrender.com/Product')
         .then(response => response.json())
         .then(products => {
             const productsList = document.getElementById('products-list')
@@ -103,7 +103,7 @@ function validarproduto(produtosExistentes) {
 //inserir produtos
 function adicionarProduto(productData) {
 
-    fetch('http://localhost:3033/Product', {
+    fetch('https://market-list.onrender.com/Product', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ function adicionarProduto(productData) {
 document.getElementById('form-product').addEventListener('submit', (e) => {
     e.preventDefault()
 
-    fetch('http://localhost:3033/Product')
+    fetch('https://market-list.onrender.com/Product')
         .then(response => response.json())
         .then(produtosExistentes => {
             const productData = validarproduto(produtosExistentes)
@@ -137,7 +137,7 @@ document.getElementById('form-product').addEventListener('submit', (e) => {
 
 //editar product 
 function editarProduto(id) {
-    fetch(`http://localhost:3033/Product/${id}`)
+    fetch(`https://market-list.onrender.com/Product/${id}`)
         .then(response => response.json())
         .then(product => {
             document.getElementById('editar-produto').value = product.Nome
@@ -158,7 +158,7 @@ function EnviarEdicao() {
         Desc: document.getElementById('editar-descricao').value
     }
 
-    fetch(`http://localhost:3033/Product/${id}`, {
+    fetch(`https://market-list.onrender.com/Product/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -178,7 +178,7 @@ function EnviarEdicao() {
 
 //atualizar produto
 function AtualizarProduto(id, productData) {
-    fetch(`http://localhost:3033/Product/${id}`, {
+    fetch(`https://market-list.onrender.com/Product/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -195,7 +195,7 @@ function AtualizarProduto(id, productData) {
 //deletar produto
 
 function deleteProduct(id) {
-    fetch(`http://localhost:3033/Product/${id}`, {
+    fetch(`https://market-list.onrender.com/Product/${id}`, {
         method: 'DELETE'
     })
         .then(response => {
@@ -233,7 +233,7 @@ document.getElementById('clear').addEventListener('click', validarDelete)
 
 async function deleteGeral() {
     try {
-        const response = await fetch('http://localhost:3033/Product', {
+        const response = await fetch('https://market-list.onrender.com/Product', {
             method: 'DELETE'
         })
 
