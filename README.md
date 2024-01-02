@@ -5,8 +5,7 @@ Uma projeto fullstack de lista de mercado para usar aqui em casa.
 <img src="./public/img/exemplo.jpeg" />
 </p>
 
-## Funções
-* Logar; 
+## Funções 
 * Inserir Produto;
 * Ver Produto;
 * Editar Produto;
@@ -18,14 +17,12 @@ Uma projeto fullstack de lista de mercado para usar aqui em casa.
 * Express;
 * MongoDB;
 * Mongoose;
-* JWT;
-* Bcrypt;
 * Cors.
 
 ## Como rodar 
 
 ```bash
-# npm install express mongoose jsonwebtoken nodemon cors dotenv
+# npm i
 ```
 ```bash
 # npm start run
