@@ -1,15 +1,9 @@
 const mongoose = require('mongoose')
 const express = require('express')
 const app = express()
-require('dotenv').config()
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // permite acesso de qualquer origem
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
-
 const cors = require('cors');
+
+require('dotenv').config()
 app.use(cors());
 
 
